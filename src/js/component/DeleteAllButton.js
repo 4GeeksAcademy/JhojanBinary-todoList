@@ -6,7 +6,7 @@ const DeleteAllButton = ({ deleteTodos }) => {
             className="deleteAll btn btn-danger btn-sm"
             onClick={deleteTodos}
         >
-            Delete All!
+            Delete all!
         </button>
     );
 };

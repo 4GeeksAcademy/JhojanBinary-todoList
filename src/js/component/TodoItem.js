@@ -11,7 +11,7 @@ const TodoItem = ({ item, index, handleDelete }) => {
                 className="btn btn-danger btn-sm"
                 onClick={() => handleDelete(index)}
             >
-                X
+                x
             </button>
         </li>
     );

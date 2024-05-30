@@ -41,7 +41,7 @@ const Home = () => {
 
     return (
         <div className="text-center ">
-            <h1>TODOS</h1>
+            <h1>NOTAS</h1>
 
             <Input
                 value={todo}

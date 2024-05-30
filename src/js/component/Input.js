@@ -14,7 +14,7 @@ const Input = ({ value, onChange, onKeyPress }) => {
                     onChange={onChange}
                     onKeyPress={onKeyPress}
                 />
-                <label htmlFor="floatingInputGroup1">I N P U T....</label>
+                <label htmlFor="floatingInputGroup1">I N P U T.....</label>
             </div>
         </div>
     );

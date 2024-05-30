@@ -1,19 +1,25 @@
+// Home.js
 import React, { useState } from "react";
+import Input from "./Input";
+import TodoList from "./TodoList";
+import DeleteAllButton from "./DeleteAllButton";
 
 const Home = () => {
     const [todo, setTodo] = useState("");
     const [todosList, setTodosList] = useState([]);
 
-    const handleKeyPress = event => {
-        if (event.key === "Enter") {
+    const handleKeyPress = e => {
+        if (e.key === "Enter") {
             handleAddTodo();
         }
     };
 
     const handleAddTodo = () => {
         if (todo.trim() !== "") {
-            setTodosList([...todosList, todo]); // Agrego el valor de todo a la lista
-            setTodo(""); //limpio mi input
+            setTodosList([todo, ...todosList]);
+            setTodo("");
+        } else {
+            alert("DEBES DE INGRESAR UN VALOR AL INPUT");
         }
     };
 
@@ -23,44 +29,30 @@ const Home = () => {
         setTodosList(newTodosList);
     };
 
+    const deleteTodos = () => {
+        if (todosList.length === 0) {
+            alert("No hay nada que borrar");
+        } else {
+            setTodosList([]);
+        }
+    };
+
+    
+
     return (
         <div className="text-center ">
             <h1>TODOS</h1>
-            <div className="input-group mb-3 mt-3 container">
 
-                <div className="form-floating">
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="floatingInputGroup1"
-                        placeholder="Username"
-                        value={todo}
-                        onChange={e => setTodo(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                    />
-
-
-                    <label htmlFor="floatingInputGroup1">I N P U T....</label>
-                </div>
-            </div>
+            <Input
+                value={todo}
+                onChange={e => setTodo(e.target.value)}
+                onKeyPress={handleKeyPress}/>
 
             <div className="container">
-                <ul className="list-group">
-                    {todosList.map((item, index) => (
-                        <li
-                            key={index}
-                            className="list-group-item d-flex justify-content-between align-items-center"
-                        >
-                            {item}
-                            <button
-                                className="btn btn-danger btn-sm"
-                                onClick={() => handleDelete(index)}
-                            >
-                                X
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+
+                <DeleteAllButton deleteTodos={deleteTodos} />
+                <TodoList todosList={todosList} handleDelete={handleDelete} />
+                
             </div>
         </div>
     );

@@ -22,3 +22,15 @@ h1{
     letter-spacing: 30px;
     text-decoration: underline wavy plum;
 }
+
+.deleteAll{
+    background-color: red;
+    color: white;
+    padding: 10px 45px;
+    transition: all 300ms ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.deleteAll:hover{
+    transform: scale(1.5);
+}
